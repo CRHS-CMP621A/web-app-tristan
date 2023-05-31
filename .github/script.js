@@ -2,6 +2,18 @@
 let HotelsList = []
 let AirBnbsList = []
 
+class AirBnb {
+
+    constructor(coords, name, price, link) {
+
+        this.coords = coords; // [lng, lat]
+        this.name = name;  // House name
+        this.price = price; // how much to rent
+        this.link = link; // link to page
+    }
+
+}
+
 navigator.geolocation.getCurrentPosition(
 
     function (position) {
