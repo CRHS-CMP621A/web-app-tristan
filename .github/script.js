@@ -28,8 +28,9 @@ async function closeListings(lat, lng) {
 
             try {
         const response = await fetch(url, options);
-        const result = await response.text();
+        const result = await response.json();
         console.log(result);
+        console.log(result['results'][0])
 
     } catch (error) {
         console.error(error);
