@@ -5,14 +5,29 @@ let AirBnbsList = []
 let range = 500;
 
 
-class AirBnbListing {
+class Location {
 
-    constructor(id) {
+    constructor(coords) {
 
-        this.id = id; //Listing id
+        this.coords = coords; // lat, lng
 
     }
 
+}
+
+class AirBnb extends Location {
+
+    type = 'AirBnb';
+
+    constructor(coords, id, name) {
+
+        super(coords);
+        this.name = name;
+        this.id = id;
+
+    }
+
+    return
 }
 
 //Apis
@@ -29,17 +44,23 @@ async function closeListings(lat, lng) {
             try {
         const response = await fetch(url, options);
         const result = await response.json();
+
         console.log(result);
-        console.log(result['results'][0])
+
+        let i = 0
+
+        listingDetails(result['results'][i]['airbnb_id'], i);
+
+        
 
     } catch (error) {
         console.error(error);
     }
 }
 
-async function listingDetails() {
+async function listingDetails(id, i) {
 
-    const url = `https://airbnb-listings.p.rapidapi.com/v2/listing?id=${AirBnbListing.id}`;
+    const url = `https://airbnb-listings.p.rapidapi.com/v2/listing?id=${id}`;
 const options = {
 	method: 'GET',
 	headers: {
@@ -50,7 +71,18 @@ const options = {
 
 try {
 	const response = await fetch(url, options);
-	const result = await response.text();
+	const result = await response.json();
+
+    let name = result['results'][i]['listingTitle']
+    let lat = result['results'][i]['listingLat']
+    let lng = result['results'][i]['listingLng']
+
+    Location = new AirBnb([lat,lng], id, name);
+
+    AirBnbsList.push(Location);
+
+    
+
 	console.log(result);
 } catch (error) {
 	console.error(error);
@@ -58,7 +90,7 @@ try {
 
 }
 
-listingDetails();
+
 
 navigator.geolocation.getCurrentPosition(
 
