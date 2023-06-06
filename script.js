@@ -2,6 +2,8 @@
 let HotelsList = []
 let AirBnbsList = []
 
+let AirBnbMarkers = []
+
 let range = 500;
 
 class Location {
@@ -9,6 +11,8 @@ class Location {
     constructor(coords) {
 
         this.coords = coords; // lat, lng
+
+
 
     }
 
@@ -36,7 +40,8 @@ async function closeListings(lat, lng) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
+            'X-RapidAPI-Key': '1cf8fd05cemshacf507ca79e4f1ep1e2913jsn294736aaeac2',
+            // 'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
             // 'X-RapidAPI-Key': '20b4f70deemsh2516ad2619539b1p13c0c9jsn0d4d91bd427a',
             'X-RapidAPI-Host': 'airbnb-listings.p.rapidapi.com'
         }
@@ -47,10 +52,13 @@ async function closeListings(lat, lng) {
         const result = await response.json();
 
         console.log(result);
+        let x = 10;
 
         for (let i = 0; i < result.results.length; i++){
-
-            listingDetails(result['results'][i]['airbnb_id']);
+           
+            let id = result['results'][i]['airbnb_id'];
+            // console.log(id)
+            listingDetails(id);
 
         }
 
@@ -66,7 +74,8 @@ async function listingDetails(id) {
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
+        'X-RapidAPI-Key': '1cf8fd05cemshacf507ca79e4f1ep1e2913jsn294736aaeac2',
+		// 'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
         // 'X-RapidAPI-Key': '20b4f70deemsh2516ad2619539b1p13c0c9jsn0d4d91bd427a',
 		'X-RapidAPI-Host': 'airbnb-listings.p.rapidapi.com'
 	}
@@ -77,7 +86,7 @@ try {
 	const result = await response.json();
 
     console.log(result);
-
+    
     let name = result['results'][0]['listingTitle']
     let lat = result['results'][0]['listingLat']
     let lng = result['results'][0]['listingLng']
@@ -87,8 +96,12 @@ try {
 
     AirBnbsList.push(Location);
 
+    Location.name = L.marker(Location.coords).bindPopup(Location.name)
+
+    AirBnbMarkers.push(Location.name);
+
 } catch (error) {
-	console.error(error);
+	// console.error(error);
 }
 
 }
@@ -115,7 +128,7 @@ navigator.geolocation.getCurrentPosition(
         }).addTo(map);
 
         //Layer Groups
-        var AirBnbs = L.layerGroup(AirBnbsList);
+        var AirBnbs = L.layerGroup(AirBnbMarkers);
         var Hotels = L.layerGroup(HotelsList);
         
         var baseMaps = {};
