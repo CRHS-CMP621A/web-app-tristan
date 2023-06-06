@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #map {
     height: 400px;
     width: 800px;
@@ -7,4 +8,15 @@ body{
 }
 h1 {
     color: chartreuse;
+=======
+#map {
+    height: 400px;
+    width: 800px;
+}
+body{
+    background-color:rgb(45, 50, 59)
+}
+h1 {
+    color: chartreuse;
+>>>>>>> 52ffa87dce5ceccd6d24eff3cb16b9fb5088ffd0
 }
