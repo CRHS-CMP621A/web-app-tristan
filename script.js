@@ -87,7 +87,8 @@ async function closeHotel(lat, lng) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
+            'X-RapidAPI-Key': '1cf8fd05cemshacf507ca79e4f1ep1e2913jsn294736aaeac2',
+            // 'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
             // 'X-RapidAPI-Key': '20b4f70deemsh2516ad2619539b1p13c0c9jsn0d4d91bd427a',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
@@ -117,7 +118,8 @@ async function HotelDetails(id) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
+            'X-RapidAPI-Key': '1cf8fd05cemshacf507ca79e4f1ep1e2913jsn294736aaeac2',
+            // 'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
             // 'X-RapidAPI-Key': '20b4f70deemsh2516ad2619539b1p13c0c9jsn0d4d91bd427a',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
@@ -149,8 +151,8 @@ async function closeListings(lat, lng) {
     const options = {
         method: 'GET',
         headers: {
-            // 'X-RapidAPI-Key': '1cf8fd05cemshacf507ca79e4f1ep1e2913jsn294736aaeac2',
-            'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
+            'X-RapidAPI-Key': '1cf8fd05cemshacf507ca79e4f1ep1e2913jsn294736aaeac2',
+            // 'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
             // 'X-RapidAPI-Key': '20b4f70deemsh2516ad2619539b1p13c0c9jsn0d4d91bd427a',
             'X-RapidAPI-Host': 'airbnb-listings.p.rapidapi.com'
         }
@@ -182,8 +184,8 @@ async function listingDetails(id) {
 const options = {
 	method: 'GET',
 	headers: {
-        // 'X-RapidAPI-Key': '1cf8fd05cemshacf507ca79e4f1ep1e2913jsn294736aaeac2',
-		'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
+        'X-RapidAPI-Key': '1cf8fd05cemshacf507ca79e4f1ep1e2913jsn294736aaeac2',
+		// 'X-RapidAPI-Key': '8e7df8cbd5msh829b9ca492c6cc9p166913jsnf7983ffebe22',
         // 'X-RapidAPI-Key': '20b4f70deemsh2516ad2619539b1p13c0c9jsn0d4d91bd427a',
 		'X-RapidAPI-Host': 'airbnb-listings.p.rapidapi.com'
 	}
