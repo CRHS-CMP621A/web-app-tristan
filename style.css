@@ -1,0 +1,32 @@
+#map {
+    height: 400px;
+    width: 800px;
+}
+body{
+    background-color:rgb(45, 50, 59)
+}
+h1 {
+    color: chartreuse;
+}
+.info_box {
+
+    margin: 50px;
+    width: 200px;
+    background-color:rgb(103, 108, 117);
+    border-radius: 20px;
+
+}
+.info {
+
+    padding: 10px;
+    color: chartreuse;
+    display: flex;
+    justify-content: center;
+    display: grid;
+    justify-items: end;
+}
+ul{
+
+    list-style-type: none;
+
+}
